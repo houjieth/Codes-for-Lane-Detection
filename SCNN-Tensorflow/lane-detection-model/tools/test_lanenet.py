@@ -19,6 +19,7 @@ try:
     from cv2 import cv2
 except ImportError:
     pass
+import pudb
 
 from lanenet_model import lanenet_merge_model
 from config import global_config
@@ -90,8 +91,9 @@ def test_lanenet(image_path, weights_path, use_gpu, image_list, batch_size, save
                     os.makedirs(directory)
                 file_exist = open(os.path.join(directory, os.path.basename(image_name)[:-3] + 'exist.txt'), 'w')
                 for cnt_img in range(4):
-                    cv2.imwrite(os.path.join(directory, os.path.basename(image_name)[:-4] + '_' + str(cnt_img + 1) + '_avg.png'),
-                            (instance_seg_image[cnt, :, :, cnt_img + 1] * 255).astype(int))
+                    filename = os.path.join(directory, os.path.basename(image_name)[:-4] + '_' + str(cnt_img + 1) + '_avg.png')
+                    print("writing file to {}".format(filename))
+                    cv2.imwrite(filename, (instance_seg_image[cnt, :, :, cnt_img + 1] * 255).astype(int))
                     if existence_output[cnt, cnt_img] > 0.5:
                         file_exist.write('1 ')
                     else:

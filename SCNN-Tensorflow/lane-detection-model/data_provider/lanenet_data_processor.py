@@ -70,6 +70,9 @@ class DataSet(object):
             for _info in file:
                 info_tmp = _info.strip(' ').split()
 
+                # Jie: What? They delete the first letter in the path. I can do other things instead
+                # For example, I can add a path prefix
+                # TODO: use pudb to figure out what's happening here
                 img_list.append(info_tmp[0][1:])
                 label_instance_list.append(info_tmp[1][1:])
                 label_existence_list.append([int(info_tmp[2]), int(info_tmp[3]), int(info_tmp[4]), int(info_tmp[5])])

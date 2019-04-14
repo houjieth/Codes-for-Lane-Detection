@@ -27,7 +27,8 @@ from data_provider import lanenet_data_processor_test
 
 
 CFG = global_config.cfg
-VGG_MEAN = [103.939, 116.779, 123.68]
+# VGG_MEAN = [103.939, 116.779, 123.68]  # RGB?
+VGG_MEAN = [123.68, 116.779, 103.939]  # BGR?
 
 
 def init_args():

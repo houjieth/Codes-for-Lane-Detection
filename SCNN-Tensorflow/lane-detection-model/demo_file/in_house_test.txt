@@ -1,0 +1,10 @@
+//media/jie/ssd/CULane/pony_test/0.jpg
+//media/jie/ssd/CULane/pony_test/1.jpg
+//media/jie/ssd/CULane/pony_test/2.jpg
+//media/jie/ssd/CULane/pony_test/3.jpg
+//media/jie/ssd/CULane/pony_test/4.jpg
+//media/jie/ssd/CULane/pony_test/5.jpg
+//media/jie/ssd/CULane/pony_test/6.jpg
+//media/jie/ssd/CULane/pony_test/7.jpg
+//media/jie/ssd/CULane/pony_test/8.jpg
+//media/jie/ssd/CULane/pony_test/9.jpg

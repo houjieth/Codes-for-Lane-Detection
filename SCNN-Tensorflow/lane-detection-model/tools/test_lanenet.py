@@ -37,6 +37,7 @@ def init_args():
     :return:
     """
     parser = argparse.ArgumentParser()
+    parser.add_argument('--dataset_dir', type=str, help='The training dataset dir path')
     parser.add_argument('--image_path', type=str, help='The image path or the src image save dir')
     parser.add_argument('--weights_path', type=str, help='The model weights path')
     parser.add_argument('--is_batch', type=str, help='If test a batch of images', default='false')
@@ -48,7 +49,7 @@ def init_args():
 
 
 
-def test_lanenet(image_path, weights_path, use_gpu, image_list, batch_size, save_dir):
+def test_lanenet(dataset_dir, image_path, weights_path, use_gpu, image_list, batch_size, save_dir):
 
     """
     :param image_path:
@@ -121,4 +122,4 @@ if __name__ == '__main__':
         for line in g.readlines():
             img_name.append(line.strip())
 
-    test_lanenet(args.image_path, args.weights_path, args.use_gpu, img_name, args.batch_size, save_dir)
+    test_lanenet(args.dataset_dir, args.image_path, args.weights_path, args.use_gpu, img_name, args.batch_size, save_dir)

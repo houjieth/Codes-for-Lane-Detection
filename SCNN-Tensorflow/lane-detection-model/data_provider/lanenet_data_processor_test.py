@@ -21,11 +21,12 @@ class DataSet(object):
     实现数据集类
     """
 
-    def __init__(self, dataset_info_file, batch_size):
+    def __init__(self, dataset_info_file, batch_size, prefix_path=""):
         """
 
         :param dataset_info_file:
         """
+        self._prefix_path = prefix_path
         self._dataset_info_file = dataset_info_file
         self._batch_size = batch_size
         self._img_list = self._init_dataset()
@@ -46,7 +47,7 @@ class DataSet(object):
         with open(self._dataset_info_file, 'r') as file:
             for _info in file:
                 info_tmp = _info.strip(' ').split()
-                img_list.append(info_tmp[0][1:])
+                img_list.append(self._prefix_path + info_tmp[0])
 
         self._len = len(img_list)
 

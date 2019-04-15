@@ -17,6 +17,8 @@ import glog as log
 import numpy as np
 import tensorflow as tf
 
+import pudb
+
 import sys
 
 from config import global_config
@@ -164,8 +166,8 @@ def train_net(dataset_dir, weights_path=None, net_flag='vgg'):
 
     phase = tf.placeholder(dtype=tf.string, shape=None, name='net_phase')
 
-    train_dataset = lanenet_data_processor.DataSet(train_dataset_file)
-    val_dataset = lanenet_data_processor.DataSet(val_dataset_file)
+    train_dataset = lanenet_data_processor.DataSet(train_dataset_file, dataset_dir)
+    val_dataset = lanenet_data_processor.DataSet(val_dataset_file, dataset_dir)
 
     net = lanenet_merge_model.LaneNet()
 

@@ -9,6 +9,7 @@
 实现LaneNet的数据解析类
 """
 import tensorflow as tf
+import pudb
 
 from config import global_config
 
@@ -21,12 +22,13 @@ class DataSet(object):
     实现数据集类
     """
 
-    def __init__(self, dataset_info_file):
+    def __init__(self, dataset_info_file, path_prefix=""):
         """
         :param dataset_info_file:
         """
         self._len = 0
         self.dataset_info_file = dataset_info_file
+        self._path_prefix = path_prefix
         self._img, self._label_instance, self._label_existence = self._init_dataset()
 
     def __len__(self):
@@ -69,12 +71,8 @@ class DataSet(object):
         with open(self.dataset_info_file, 'r') as file:
             for _info in file:
                 info_tmp = _info.strip(' ').split()
-
-                # Jie: What? They delete the first letter in the path. I can do other things instead
-                # For example, I can add a path prefix
-                # TODO: use pudb to figure out what's happening here
-                img_list.append(info_tmp[0][1:])
-                label_instance_list.append(info_tmp[1][1:])
+                img_list.append(self._path_prefix + info_tmp[0])
+                label_instance_list.append(self._path_prefix + info_tmp[1])
                 label_existence_list.append([int(info_tmp[2]), int(info_tmp[3]), int(info_tmp[4]), int(info_tmp[5])])
 
         self._len = len(img_list)

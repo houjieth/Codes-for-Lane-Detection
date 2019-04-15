@@ -28,7 +28,7 @@ __C.TRAIN.TEST_DISPLAY_STEP = 1000
 __C.TRAIN.MOMENTUM = 0.9
 # Set the initial learning rate
 #__C.TRAIN.LEARNING_RATE = 0.01  # 0.0005
-__C.TRAIN.LEARNING_RATE = 0.001  # 0.0005
+__C.TRAIN.LEARNING_RATE = 0.0005  # 0.0005
 # Set the GPU resource used during training process
 __C.TRAIN.GPU_MEMORY_FRACTION = 0.85
 # Set the GPU allow growth parameter during tensorflow training process
@@ -51,7 +51,7 @@ __C.TRAIN.IMG_HEIGHT = 288  # 256
 __C.TRAIN.IMG_WIDTH = 800  # 512
 # Set GPU number
 #__C.TRAIN.GPU_NUM = 4   # 8
-__C.TRAIN.GPU_NUM = 2   # 8
+__C.TRAIN.GPU_NUM = 6   # 8
 # Set CPU thread number
 __C.TRAIN.CPU_NUM = 4   #
 

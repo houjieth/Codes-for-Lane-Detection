@@ -58,7 +58,7 @@ def test_lanenet(dataset_dir, image_path, weights_path, use_gpu, image_list, bat
     :return:
     """
     
-    test_dataset = lanenet_data_processor_test.DataSet(image_path, batch_size)
+    test_dataset = lanenet_data_processor_test.DataSet(image_path, batch_size, dataset_dir)
     input_tensor = tf.placeholder(dtype=tf.string, shape=[None], name='input_tensor')
     imgs = tf.map_fn(test_dataset.process_img, input_tensor, dtype=tf.float32)
     phase_tensor = tf.constant('test', tf.string)
